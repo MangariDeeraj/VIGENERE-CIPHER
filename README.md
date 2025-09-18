@@ -8,8 +8,8 @@
 
 ## AIM:
 
-To implement the Vigenere Cipher substitution technique using C program.
-
+To implement the Vigenere Cipher substitution technique using C program..
+.
 ## DESCRIPTION:
 
 To encrypt, a table of alphabets can be used, termed a tabula recta, Vigenère square,or Vigenère table. It consists of the alphabet written out 26 times in differnt rows, each
@@ -85,7 +85,7 @@ int main() {
     for (int i = 0; i < strlen(key); i++) key[i] = toupper(key[i]);
 
     encrypt(text, key, enc);
-    printf("Encrypted text : %s\n", enc);
+    printf("Encrypted text : %s\n", enc); 
 
     decrypt(enc, key, dec);
     printf("Decrypted text : %s\n", dec);
