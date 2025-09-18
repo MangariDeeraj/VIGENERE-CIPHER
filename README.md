@@ -32,72 +32,29 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 ## PROGRAM
 ```
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
+def vigenere_cipher(text, key, decrypt=False):
+    result = []
+    key_len = len(key)
+    for i, char in enumerate(text):
+        shift = ord(key[i % key_len]) - ord('A')
+        if decrypt:
+            shift = 26 - shift
+        new_char = chr((ord(char) - ord('A') + shift) % 26 + ord('A'))
+        result.append(new_char)
+    return "".join(result)
+text = input("Enter text (UPPERCASE only): ")
+key = input("Enter key (UPPERCASE only): ")
+encrypted = vigenere_cipher(text, key, decrypt=False)
+print("Encrypted Message:", encrypted)
+decrypted = vigenere_cipher(encrypted, key, decrypt=True)
+print("Decrypted Message:", decrypted)
 
-// Function to encrypt a message using Vigenere Cipher
-void encrypt(char text[], char key[], char result[]) {
-    int textLen = strlen(text);
-    int keyLen = strlen(key);
-    int i, j = 0;
-
-    for (i = 0; i < textLen; i++) {
-        if (isalpha(text[i])) {
-            char base = isupper(text[i]) ? 'A' : 'a';
-            result[i] = ( (text[i] - base) + (toupper(key[j % keyLen]) - 'A') ) % 26 + base;
-            j++;
-        } else {
-            result[i] = text[i]; // keep spaces/punctuation
-        }
-    }
-    result[i] = '\0';
-}
-
-// Function to decrypt a message using Vigenere Cipher
-void decrypt(char text[], char key[], char result[]) {
-    int textLen = strlen(text);
-    int keyLen = strlen(key);
-    int i, j = 0;
-
-    for (i = 0; i < textLen; i++) {
-        if (isalpha(text[i])) {
-            char base = isupper(text[i]) ? 'A' : 'a';
-            result[i] = ( ( (text[i] - base) - (toupper(key[j % keyLen]) - 'A') + 26 ) % 26 ) + base;
-            j++;
-        } else {
-            result[i] = text[i]; // keep spaces/punctuation
-        }
-    }
-    result[i] = '\0';
-}
-
-int main() {
-    char text[1000], key[100], enc[1000], dec[1000];
-
-    printf("Simulation of Vigenere Cipher\n");
-    printf("Enter the message: ");
-    scanf("%[^\n]", text);   // read full line including spaces
-    getchar();
-    printf("Enter the key: ");
-    scanf("%s", key);
-
-    for (int i = 0; i < strlen(key); i++) key[i] = toupper(key[i]);
-
-    encrypt(text, key, enc);
-    printf("Encrypted text : %s\n", enc); 
-
-    decrypt(enc, key, dec);
-    printf("Decrypted text : %s\n", dec);
-
-    return 0;
-}
 
 ```
 
 ## OUTPUT
-<img width="1889" height="877" alt="image" src="https://github.com/user-attachments/assets/19976908-a8a4-4050-a586-c405886cc733" />
 
+![WhatsApp Image 2025-09-18 at 10 42 57_c87a09d5](https://github.com/user-attachments/assets/641f5270-9ae3-4cfb-b72e-61ce08693188)
 
 ## RESULT
 The program is executed successfully
