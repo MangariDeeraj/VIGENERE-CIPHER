@@ -111,7 +111,7 @@ void decipher() {
 ```
 
 ## OUTPUT
-<img width="774" height="745" alt="image" src="https://github.com/user-attachments/assets/972576d0-746f-4323-be13-92babb760626" />
+<img width="821" height="734" alt="image" src="https://github.com/user-attachments/assets/213eb1cc-1d31-4027-aaf4-a8a478b822ba" />
 
 ## RESULT
 The program is executed successfully
